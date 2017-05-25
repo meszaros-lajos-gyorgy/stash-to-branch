@@ -1,0 +1,44 @@
+{
+  "title": "Stash to branch",
+  "name": "stash-to-branch",
+  "version": "0.0.0-development",
+  "description": "A cli tool for git, which allows stashing and restoring changes to a branch",
+  "main": "index.js",
+  "scripts": {
+    "unit": "mocha --require reify test/*.spec.js",
+    "unit:watch": "npm run unit -- --watch",
+    "lint": "standard --verbose --fix src/*.js",
+    "test": "npm run lint && npm run unit",
+    "commit": "git-cz",
+    "commit:again": "git-cz --retry",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/meszaros-lajos-gyorgy/stash-to-branch.git"
+  },
+  "author": "Lajos Meszaros <m_lajos@hotmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/meszaros-lajos-gyorgy/stash-to-branch/issues"
+  },
+  "homepage": "https://github.com/meszaros-lajos-gyorgy/stash-to-branch#readme",
+  "dependencies": {
+    "minimist": "^1.2.0",
+    "simple-git": "^1.73.0"
+  },
+  "devDependencies": {
+    "assert": "^1.4.1",
+    "cz-conventional-changelog": "^2.0.0",
+    "mocha": "^3.4.1",
+    "pre-commit": "^1.2.2",
+    "reify": "^0.11.0",
+    "semantic-release": "^6.3.6",
+    "standard": "^10.0.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
