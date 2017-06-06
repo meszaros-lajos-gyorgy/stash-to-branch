@@ -5,9 +5,9 @@
   "description": "A cli tool for git, which allows stashing and restoring changes to a branch",
   "main": "index.js",
   "scripts": {
-    "unit": "mocha --require reify test/*.spec.js",
+    "unit": "mocha --require reify test/**/*.spec.js",
     "unit:watch": "npm run unit -- --watch",
-    "lint": "standard --verbose --fix src/*.js",
+    "lint": "standard --verbose --fix src/**/*.js",
     "test": "npm run lint && npm run unit",
     "commit": "git-cz",
     "commit:again": "git-cz --retry",

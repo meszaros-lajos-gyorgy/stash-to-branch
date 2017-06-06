@@ -1,31 +1,48 @@
 const git = require('simple-git')()
 
-console.log('testing again')
+const getCurrentBranchName = () => new Promise((resolve, reject) => {
+  git
+    .silent(true)
+    .status((err, res) => {
+      if (err) {
+        reject(err)
+      } else {
+        resolve(res.current)
+      }
+    })
+})
 
 const save = name => new Promise((resolve, reject) => {
   git
     .silent(true)
-    .raw(['status'], function (err, res) {
+    .reset()
+    .raw(['checkout', '-b', name])
+    .raw(['add', '-A'])
+    .commit('Saving workspace', {'--no-verify': undefined}, (err, res) => {
       if (err) {
         reject(err)
       } else {
         resolve('saved workspace to ' + name)
       }
     })
-
-  /*
-    git reset HEAD
-    git checkout -b {name}
-    git add -A
-    git commit --no-verify -m "Saving workspace"
-  */
 })
 
 const restore = name => new Promise((resolve, reject) => {
-  /*
-    git merge --no-commit --squash {name}
-    git reset HEAD
-  */
+  getCurrentBranchName().then(currentBranch => {
+    git
+      .silent(true)
+      .mergeFromTo(name, currentBranch, {
+        '--no-commit': undefined,
+        '--squash': undefined
+      })
+      .reset((err, res) => {
+        if (err) {
+          reject(err)
+        } else {
+          resolve('saved workspace to ' + name)
+        }
+      })
+  })
 
   resolve('restored workspace from ' + name)
 })
