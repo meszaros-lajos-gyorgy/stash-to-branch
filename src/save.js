@@ -3,7 +3,7 @@ const git = require('simple-git')()
 const save = name => new Promise((resolve, reject) => {
   git
     .silent(true)
-    .reset()
+    .raw(['reset'])
     .raw(['checkout', '-b', name])
     .raw(['add', '-A'])
     .commit('Saving workspace', {'--no-verify': undefined}, (err, res) => {

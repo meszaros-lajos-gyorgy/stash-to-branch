@@ -4,7 +4,7 @@ const restore = name => new Promise((resolve, reject) => {
   git
     .silent(true)
     .raw(['merge', '--no-commit', '--squash', name])
-    .reset((err, res) => {
+    .raw(['reset'], (err, res) => {
       if (err) {
         reject(err)
       } else {
