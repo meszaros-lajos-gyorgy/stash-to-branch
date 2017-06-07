@@ -3,7 +3,10 @@
   "name": "stash-to-branch",
   "version": "0.0.0-development",
   "description": "A cli tool for git, which allows stashing and restoring changes to a branch",
-  "main": "index.js",
+  "main": "src/index.js",
+  "bin": {
+    "stash-to-branch": "bin/stash-to-branch.js"
+  },
   "scripts": {
     "unit": "mocha --require reify test/**/*.spec.js",
     "unit:watch": "npm run unit -- --watch",

@@ -2,19 +2,24 @@
 
 import assert from 'assert'
 
-import {
-  save,
-  restore
-} from '../src/index'
+import save from '../src/save'
+import restore from '../src/restore'
+import getCurrentBranchName from '../src/helpers/getCurrentBranchName'
 
 describe('save', () => {
   it('is a function', () => {
-    assert.strictEqual(typeof save, 'function', 'the type of save should be a function')
+    assert.strictEqual(typeof save, 'function', 'the type of save should be function')
   })
 })
 
 describe('restore', () => {
   it('is a function', () => {
-    assert.strictEqual(typeof restore, 'function', 'the type of restore should be a function')
+    assert.strictEqual(typeof restore, 'function', 'the type of restore should be function')
+  })
+})
+
+describe('getCurrentBranchName', () => {
+  it('is a function', () => {
+    assert.strictEqual(typeof getCurrentBranchName, 'function', 'the type of getCurrentBranch should be function')
   })
 })
