@@ -8,11 +8,9 @@ const restore = name => new Promise((resolve, reject) => {
       if (err) {
         reject(err)
       } else {
-        resolve('saved workspace to ' + name)
+        resolve('restored workspace from ' + name)
       }
     })
-
-  resolve('restored workspace from ' + name)
 })
 
 module.exports = restore
