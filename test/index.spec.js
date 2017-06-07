@@ -4,7 +4,6 @@ import assert from 'assert'
 
 import save from '../src/save'
 import restore from '../src/restore'
-import getCurrentBranchName from '../src/helpers/getCurrentBranchName'
 
 describe('save', () => {
   it('is a function', () => {
@@ -15,11 +14,5 @@ describe('save', () => {
 describe('restore', () => {
   it('is a function', () => {
     assert.strictEqual(typeof restore, 'function', 'the type of restore should be function')
-  })
-})
-
-describe('getCurrentBranchName', () => {
-  it('is a function', () => {
-    assert.strictEqual(typeof getCurrentBranchName, 'function', 'the type of getCurrentBranch should be function')
   })
 })
