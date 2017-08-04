@@ -12,9 +12,9 @@ A cli tool for git, which allows stashing and restoring changes to a branch
 
 ### Installing
 
-Install the tool to your project
+Install the tool globally
 
-`npm i stash-to-branch --save-dev`
+`npm i stash-to-branch -g`
 
 ### Saving
 
@@ -50,16 +50,21 @@ Feel free to delete `stashed-foo` from local and remote, when you no longer need
 
 ## Arguments
   
-**--save <name>** or **-s <name>**
+**--save <name>** or **-s <name>** or **--stash <name>**
 
 > Saves the local changes of the current branch to "stashed-<name>". The "stashed-"
-prefix can be overriden by the --prefix switch.
+prefix can be overriden by the --prefix argument.
 
-**--restore <name>** or **-r <name>**
+**--restore <name>** or **-r <name>** or **--apply <name>**
 
 > Applies the changes of "stashed-<name>" to the current branch and prepares
 them for staging. No commit is being done on the current branch. The "stashed-"
-prefix can be overriden by the --prefix switch.
+prefix can be overriden by the --prefix argument.
+
+**--list** or **-l**
+
+> List all the available branches, which start with the default prefix
+(default = "stashed-"). Use the --prefix or -p argument to redefine the prefix 
 
 **--prefix <prefix>** or **-p <prefix>**
 

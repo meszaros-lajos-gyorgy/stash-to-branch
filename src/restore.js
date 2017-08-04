@@ -8,7 +8,7 @@ const restore = name => new Promise((resolve, reject) => {
       if (err) {
         reject(err)
       } else {
-        resolve('restored workspace from ' + name)
+        resolve(`applied changes from stashed branch '${name}'`)
       }
     })
 })
